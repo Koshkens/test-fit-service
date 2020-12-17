@@ -1,0 +1,49 @@
+{
+  "name": "test-fit-service",
+  "version": "1.0.0",
+  "description": "Tets for Fit Service",
+  "main": "src/main.ts",
+  "scripts": {
+    "nodemon:dev": "nodemon",
+    "nodemon:tg": "nodemon --config nodemonTypeGen.json",
+    "start:dev": "npx ts-node src/main.ts",
+    "start": "npm i && npm run tg && npm run prisma-generate && npm run build && node dist/main.js",
+    "build": "tsc",
+    "tg": "graphql-codegen --config codegen.yml",
+    "prisma-migrate": "npx prisma migrate dev --preview-feature && npx prisma generate",
+    "prisma-studio": "npx prisma studio",
+    "prisma-generate": "npx prisma generate",
+    "test": "jest --forceExit --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Koshkens/test-fit-service.git"
+  },
+  "keywords": [
+    "test",
+    "graphql"
+  ],
+  "author": "KoshkenS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Koshkens/test-fit-service/issues"
+  },
+  "homepage": "https://github.com/Koshkens/test-fit-service#readme",
+  "devDependencies": {
+    "@prisma/cli": "^2.13.0",
+    "@types/node": "^14.14.14",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^1.19.4",
+    "@graphql-codegen/typescript": "^1.19.0",
+    "@graphql-codegen/typescript-graphql-request": "^2.0.3",
+    "@graphql-codegen/typescript-resolvers": "^1.18.0",
+    "@prisma/client": "^2.13.0",
+    "graphql": "^15.4.0",
+    "graphql-codegen": "^0.4.0",
+    "graphql-yoga": "^1.18.3",
+    "type-graphql": "^1.1.1"
+  }
+}

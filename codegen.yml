@@ -1,0 +1,12 @@
+schema: ./src/schema.graphql
+documents: []
+generates:
+  ./src/resolvers/resolvers-types/resolvers-types.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+      - typescript-graphql-request
+    config:
+      contextType: ./context#MyContext
+      enumsAsTypes: true
+      maybeValue: T

@@ -1,0 +1,32 @@
+type Query {
+  city (cityId:String!): City!
+  citys: [City]!
+  stationsOfCity (cityId:String!): [Station]!
+}
+
+type Mutation {
+  createCity (data:CreateCityInput!) : City!
+  createStation (data:CreateStationInput!, cityId:String!) : Station!
+}
+
+type City {
+  id: ID
+  name: String
+  phone: String
+  stations: [Station]
+}
+
+type Station {
+  id: ID
+  name: String
+  city: City
+}
+
+input CreateStationInput {
+  name: String!
+}
+
+input CreateCityInput {
+  name: String!
+  phone: String!
+}

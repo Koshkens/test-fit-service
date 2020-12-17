@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model City {
+  id String            @id @default(uuid())
+  name String
+  phone String
+  stations Station[]
+}
+
+model Station {
+  id String            @id @default(uuid())
+  name String
+}
